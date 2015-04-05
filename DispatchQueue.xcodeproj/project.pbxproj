@@ -14,7 +14,7 @@
 		B84F1CB71ACEA44A00837A3B /* SerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F1CB61ACEA44A00837A3B /* SerialQueue.swift */; };
 		B84F1CB91ACEBEB800837A3B /* ConcurrentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F1CB81ACEBEB800837A3B /* ConcurrentQueue.swift */; };
 		B84F1CBB1ACEF09200837A3B /* DispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F1CBA1ACEF09200837A3B /* DispatchGroup.swift */; };
-		B84F1CBD1ACEFA7700837A3B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F1CBC1ACEFA7600837A3B /* Utils.swift */; };
+		B84F1CBF1ACFF6E700837A3B /* GlobalQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F1CBE1ACFF6E700837A3B /* GlobalQueues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		B84F1CB61ACEA44A00837A3B /* SerialQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialQueue.swift; sourceTree = "<group>"; };
 		B84F1CB81ACEBEB800837A3B /* ConcurrentQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentQueue.swift; sourceTree = "<group>"; };
 		B84F1CBA1ACEF09200837A3B /* DispatchGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchGroup.swift; sourceTree = "<group>"; };
-		B84F1CBC1ACEFA7600837A3B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B84F1CBE1ACFF6E700837A3B /* GlobalQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalQueues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +81,13 @@
 		B84F1C9A1ACE99DC00837A3B /* DispatchQueue */ = {
 			isa = PBXGroup;
 			children = (
-				B84F1C9D1ACE99DC00837A3B /* DispatchQueue.h */,
-				B84F1C9B1ACE99DC00837A3B /* Supporting Files */,
-				B84F1CB41ACEA09300837A3B /* DispatchQueue.swift */,
-				B84F1CB61ACEA44A00837A3B /* SerialQueue.swift */,
 				B84F1CB81ACEBEB800837A3B /* ConcurrentQueue.swift */,
 				B84F1CBA1ACEF09200837A3B /* DispatchGroup.swift */,
-				B84F1CBC1ACEFA7600837A3B /* Utils.swift */,
+				B84F1C9D1ACE99DC00837A3B /* DispatchQueue.h */,
+				B84F1CB41ACEA09300837A3B /* DispatchQueue.swift */,
+				B84F1CBE1ACFF6E700837A3B /* GlobalQueues.swift */,
+				B84F1CB61ACEA44A00837A3B /* SerialQueue.swift */,
+				B84F1C9B1ACE99DC00837A3B /* Supporting Files */,
 			);
 			path = DispatchQueue;
 			sourceTree = "<group>";
@@ -224,8 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84F1CBD1ACEFA7700837A3B /* Utils.swift in Sources */,
 				B84F1CB51ACEA09300837A3B /* DispatchQueue.swift in Sources */,
+				B84F1CBF1ACFF6E700837A3B /* GlobalQueues.swift in Sources */,
 				B84F1CB71ACEA44A00837A3B /* SerialQueue.swift in Sources */,
 				B84F1CB91ACEBEB800837A3B /* ConcurrentQueue.swift in Sources */,
 				B84F1CBB1ACEF09200837A3B /* DispatchGroup.swift in Sources */,

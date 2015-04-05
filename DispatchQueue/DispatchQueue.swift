@@ -8,11 +8,15 @@
 
 import Foundation
 
+/**
+    Base class for dispatch queues that provides basic opeations to execute blocks.
+**/
 public class DispatchQueue {
     
     public let label: String
     
     let queue: dispatch_queue_t
+    
     
     public init(queue: dispatch_queue_t) {
         self.queue = queue
@@ -41,4 +45,9 @@ public class DispatchQueue {
     public func resume() {
         dispatch_resume(queue)
     }
+}
+
+func SecondsFromNow(seconds: UInt) -> dispatch_time_t {
+    let nanoseconds = Int64(seconds) * Int64(NSEC_PER_SEC)
+    return dispatch_time(DISPATCH_TIME_NOW, nanoseconds)
 }
