@@ -2,7 +2,7 @@
 
 ## Installation
 
-If you are using pod then add the following line to your pod file:
+If you are using cocoapods then add the following line to your pod file:
 
 ```
 pod 'iDsipatch'
