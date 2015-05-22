@@ -19,7 +19,7 @@ public class SerialQueue : DispatchQueue {
         :param: label   Label or name for the new serial queue to be created.
     */
     public init(label: String) {
-        super.init(queue: dispatch_queue_create(label, nil))
+        super.init(queue: dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL))
     }
     
     /**

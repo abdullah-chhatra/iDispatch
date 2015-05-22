@@ -17,7 +17,6 @@ public class DispatchQueue {
     
     let queue: dispatch_queue_t
     
-    
     public init(queue: dispatch_queue_t) {
         self.queue = queue
         self.label = String.fromCString(dispatch_queue_get_label(queue))!

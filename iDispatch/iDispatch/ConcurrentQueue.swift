@@ -12,7 +12,7 @@ public typealias apply_block_t = (UInt) -> Void
 
 
 /**
-    Use this class represents a concurrent queue.
+    This class represents a concurrent queue.
 */
 public class ConcurrentQueue : DispatchQueue {
   
@@ -108,7 +108,7 @@ public class ConcurrentQueue : DispatchQueue {
         }
         
         if let completionBlock = completion {
-            group.notify(self, block: completionBlock)
+            group.notify(completionBlock)
         }
     }
     
@@ -156,14 +156,16 @@ public class ConcurrentQueue : DispatchQueue {
                  dict[index] = block(t: arr)
             }
         }
-        
-        group.notify(self, block: { () -> Void in
+
+        group.notify { () -> Void in
             
             var m = [U]()
             for i in 0...array.count - 1 {
                 m.append(dict[i]!)
             }
             mapped(m: m)
-        })
+        }
     }
 }
+
+

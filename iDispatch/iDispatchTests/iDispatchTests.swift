@@ -1,15 +1,15 @@
 //
-//  DispatchQueueTests.swift
-//  DispatchQueueTests
+//  iDispatchTests.swift
+//  iDispatchTests
 //
-//  Created by Abdulmunaf Chhatra on 4/3/15.
+//  Created by Abdulmunaf Chhatra on 5/20/15.
 //  Copyright (c) 2015 Abdulmunaf Chhatra. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class DispatchQueueTests: XCTestCase {
+class iDispatchTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,7 +22,9 @@ class DispatchQueueTests: XCTestCase {
     }
     
     func testExample() {
-           }
+        // This is an example of a functional test case.
+        XCTAssert(true, "Pass")
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

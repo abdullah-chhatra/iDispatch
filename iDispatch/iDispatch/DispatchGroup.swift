@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-    Represents a dispatch group.
+    Represents a dispatch group. 
 */
 public class DispatchGroup {
     
