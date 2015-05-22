@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D02A9643-5985-4564-A3E9-4A4581ABA043</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iDispatch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>88482642DFCC2CB3084FB50EE1A25284B439EC6F</key>
+		<string>https://github.com/abdullah-chhatra/iDispatch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iDispatch.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>88482642DFCC2CB3084FB50EE1A25284B439EC6F</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/abdullah-chhatra/iDispatch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>88482642DFCC2CB3084FB50EE1A25284B439EC6F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>88482642DFCC2CB3084FB50EE1A25284B439EC6F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iDispatch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
