@@ -32,6 +32,15 @@ public enum GlobalQueueIdentifier {
     }
 }
 
+/**
+    A global concurrent queue. Do not instantiate this class by your own. Following global objects
+    representing available global queues are available for direct use:
+
+    1) HighPrioriytQueue    for DISPATCH_QUEUE_PRIORITY_HIGH
+    2) DefaultPriorityQueue for DISPATCH_QUEUE_PRIORITY_DEFAULT
+    3) LowPriorityQueue     for DISPATCH_QUEUE_PRIORITY_LOW
+    4) BackgroundQueue      for DISPATCH_QUEUE_PRIORITY_BACKGROUND
+*/
 public class GlobalQueue : ConcurrentQueue {
     
     public init(identifier: GlobalQueueIdentifier) {
@@ -40,6 +49,7 @@ public class GlobalQueue : ConcurrentQueue {
 }
 
 public let MainQueue               = SerialQueue(queue: dispatch_get_main_queue())
+
 
 public let HighPrioriytQueue       = GlobalQueue(identifier: .HighPriority)
 public let DefaultPriorityQueue    = GlobalQueue(identifier: .DefaultPriority)

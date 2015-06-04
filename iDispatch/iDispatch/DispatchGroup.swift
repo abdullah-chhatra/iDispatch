@@ -15,7 +15,7 @@ public class DispatchGroup {
     
     let group: dispatch_group_t
     
-    let asyncQueue: DispatchQueue?
+    var asyncQueue: DispatchQueue?
   
     /**
         Designated initializer that creates a new GCD dispatch group.

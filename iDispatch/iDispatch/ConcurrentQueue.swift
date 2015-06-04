@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias apply_block_t = (UInt) -> Void
+public typealias apply_block_t = (Int) -> Void
 
 
 /**
@@ -71,7 +71,7 @@ public class ConcurrentQueue : DispatchQueue {
         :param: block       This will be called with iteration as a parameter.
     */
     public func apply(iterations: UInt, block: apply_block_t) {
-        dispatch_apply(iterations, queue, block)
+        dispatch_apply(Int(iterations), queue, block)
     }
     
     /**
