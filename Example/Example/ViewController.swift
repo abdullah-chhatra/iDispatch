@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ITEM_CELL, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(ITEM_CELL, forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
@@ -187,6 +187,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func exampleConcurrentApplySync() {
         var messages = ["Message - 1", "Message - 2", "Message - 3", "Message - 4", "Message - 5"]
+        
         concurrentQueue1.applySync(messages, block: { (t) -> Void in
             self.printMessage(t)
         })
@@ -195,6 +196,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func exampleConcurrentApplyAsync() {
         var messages = ["Message - 1", "Message - 2", "Message - 3", "Message - 4", "Message - 5"]
+        
         concurrentQueue1.applyAsync(messages, block: { (t) -> Void in
             self.printMessage(t)
             }) {
