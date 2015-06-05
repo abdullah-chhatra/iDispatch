@@ -1,6 +1,6 @@
 # iDispatch
 
-This is an easy to use wrapper over GCD is iOS. It not only provieds simple and intutive wrapper over dispatch_async for global queues but also other usefull constructs and cocepts like groups, timer, custom serail and concurrent queues.
+This is an easy to use wrapper over GCD is iOS. It not only provides simple and intuitive wrapper over dispatch_async for global queues but also other useful constructs and concepts like groups, timer, custom serial and concurrent queues.
 
 As this is a wrapper over GCD all the GCD concepts and limitations apply to the library. If you are not familiar with GCD please go through following links:
 
@@ -15,28 +15,28 @@ If you are using cocoapods then add the following line to your pod file:
 pod 'iDsipatch'
 ```
 
-Alternatively you could include project iDispatch/iDispatch.xcodeproj into you worspace or copy files of directory iDispatch/iDispatch/ into your project.
+Alternatively you could include project iDispatch/iDispatch.xcodeproj into you workspace or copy files of directory iDispatch/iDispatch/ into your project.
 
 ## Serial Queues
 
 If you would like to execute blocks/tasks sequentially you could do so using SerialQueue class. Following code shows usage of SerialQueue class:
 
-```
+```swift
 let queue = SerialQueue(label: "MySerialQueue")
 
 //Execute task asynchronously on this queue
 queue.dispatchAsync {
-    prinln("This will be executed asynchronously")
+    println("This will be executed asynchronously")
 }
 
 //Execute task synchronously on this queue
 queue.dispatchSync {
-    prinln("This will be executed synchronously")
+    println("This will be executed synchronously")
 }
 
-//Execute taks after number of seconds
+//Execute task after number of seconds
 queue.dispatchAfterSeconds(3) {
-    prinln("This will be executed after 3 seconds")
+    println("This will be executed after 3 seconds")
 }
 ```
 
@@ -59,15 +59,59 @@ queue.dispatchAsync {
 
 //Executing barrier block asynchronously
 queue.dispatchBarrierAsync {
-    println("This block will be exeuted after all the task sumbitted to this queue before this block are finished")
+    println("This block will be executed after all the task submitted to this queue before this block are finished")
 }
 
 //Executing barrier block synchronously
 queue.dispatchBarrierSync {
-    println("This block will be exeuted after all the task sumbitted to this queue before this block are finished")
+    println("This block will be executed after all the task submitted to this queue before this block are finished")
 }
 
 ```
 
 ### Apply blocks for iterations
 
+If you want to perform concurrent operations over an array you could make use of apply blocks. It is assumed that each iteration is independent of eachother. Following code demonstrates it:
+
+```swift
+let queue = ConcurrentQueue(label: "MyConcurrentQueue") 
+
+let imageFiles: [String] = getImagesToBeProcessed() //Some method that will return image file paths that needs to be processed.
+
+//This will block the current thread till all the images are processed. 
+queue.applySync(imageFiles) { (imageFile) -> Void in
+    //Process this image file here. 
+}
+
+//This will NOT block the current thread, completion block will be executed after all the images are processed.
+queue.applySync(imageFiles, block: { (imageFile) -> Void in
+    //Process this image file here. 
+}) {
+    //Do any post processing here.
+}
+```
+
+#### Map operations using apply blocks
+
+Another application for apply blocks is to execute map operations concurrently on an array. Following code demonstrates it:
+
+```swift
+let queue = ConcurrentQueue(label: "MyConcurrentQueue") 
+
+let messages: [String] = //Some messages to map
+
+//This method will block till all the map operations are over.
+let mapped = queue.mapSync(messages, block: { (message) -> String in
+                //Process message here
+                return processedMessage.
+            })
+            
+//This method will NOT block, mapped block will be executed when all the mapp operations are finished.
+queue.mapAsync(messages, block: { (message) -> String in
+            //Process message here
+            return processedMessage.
+        }) { (mapped) -> Void in
+            //Do something with message
+        }
+```
+You many have different type of mapping array and mapped array, here it both are kept String for the sake of simplicity.
