@@ -19,4 +19,55 @@ Alternatively you could include project iDispatch/iDispatch.xcodeproj into you w
 
 ## Serial Queues
 
-Create a serial queue by instantiatinig SericalQueue. 
+If you would like to execute blocks/tasks sequentially you could do so using SerialQueue class. Following code shows usage of SerialQueue class:
+
+```
+let queue = SerialQueue(label: "MySerialQueue")
+
+//Execute task asynchronously on this queue
+queue.dispatchAsync {
+    prinln("This will be executed asynchronously")
+}
+
+//Execute task synchronously on this queue
+queue.dispatchSync {
+    prinln("This will be executed synchronously")
+}
+
+//Execute taks after number of seconds
+queue.dispatchAfterSeconds(3) {
+    prinln("This will be executed after 3 seconds")
+}
+```
+
+## Concurrent Queues
+
+If you would like to execute blocks/tasks concurrently you could do so using ConcurrentQueue class. Apart from all the method of SerialQueue this class provides rich set of methods that covers other GCD concepts viz. barriers and apply blocks. 
+
+### Barriers
+From Apple documentation of GCD about barriers:
+
+> A dispatch barrier allows you to create a synchronization point within a concurrent dispatch queue. When it encounters a barrier, a concurrent queue delays the execution of the barrier block (or any further blocks) until all blocks submitted before the barrier finish executing. At that point, the barrier block executes by itself. Upon completion, the queue resumes its normal execution behavior.
+
+```swift
+let queue = ConcurrentQueue(label: "MyConcurrentQueue") 
+
+//Execute block asynchronously on this queue
+queue.dispatchAsync {
+    println("Async task to be executed")
+}
+
+//Executing barrier block asynchronously
+queue.dispatchBarrierAsync {
+    println("This block will be exeuted after all the task sumbitted to this queue before this block are finished")
+}
+
+//Executing barrier block synchronously
+queue.dispatchBarrierSync {
+    println("This block will be exeuted after all the task sumbitted to this queue before this block are finished")
+}
+
+```
+
+### Apply blocks for iterations
+
