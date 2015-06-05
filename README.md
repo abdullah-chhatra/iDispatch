@@ -30,9 +30,9 @@ The project is now part of your workspace. You will have to add its reference to
 
 ### Adding to a project
 
-1. Copy the iDispatch/iDispatch source folder into your project
+Copy the iDispatch/iDispatch source folder into your project
 
-Alternatively you could include project iDispatch/iDispatch.xcodeproj into you workspace or copy files of directory iDispatch/iDispatch/ into your project.
+
 
 ## Serial Queues
 
