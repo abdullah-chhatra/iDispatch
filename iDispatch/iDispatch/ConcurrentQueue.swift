@@ -44,9 +44,8 @@ public class ConcurrentQueue : DispatchQueue {
     
         :param: block   The barrier block that is to be dispatched on this queue.
     */
-    public func dispatchBarrierAsync(block: dispatch_block_t) -> ConcurrentQueue {
+    public func dispatchBarrierAsync(block: dispatch_block_t) {
         dispatch_barrier_async(queue, block)
-        return self
     }
     
     /**
@@ -55,9 +54,8 @@ public class ConcurrentQueue : DispatchQueue {
     
         :param: block   The barrier block that is to be dispatched on this queue.
     */
-    public func dispatchBarrierSync(block: dispatch_block_t) -> ConcurrentQueue {
+    public func dispatchBarrierSync(block: dispatch_block_t) {
         dispatch_barrier_sync(queue, block)
-        return self
     }
     
     

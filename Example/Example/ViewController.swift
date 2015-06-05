@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
         switch indexPath.row {
         case 0:
             showAlertInMainQueue()
@@ -188,6 +188,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func exampleConcurrentApplySync() {
         var messages = ["Message - 1", "Message - 2", "Message - 3", "Message - 4", "Message - 5"]
         
+        concurrentQueue1.applySync(messages) { (imageFile) -> Void in
+            
+        }
         concurrentQueue1.applySync(messages, block: { (t) -> Void in
             self.printMessage(t)
         })
