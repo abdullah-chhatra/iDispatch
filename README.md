@@ -4,16 +4,33 @@ This is an easy to use wrapper over GCD is iOS. It not only provides simple and 
 
 As this is a wrapper over GCD all the GCD concepts and limitations apply to the library. If you are not familiar with GCD please go through following links:
 
-https://developer.apple.com/library/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/
-http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1
+[Apple Concurrency Programming Guide - Dispatch Queues] (https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102-SW1)
 
-## Installation
+[GCD Reference] (https://developer.apple.com/library/ios/documentation/Performance/Reference/GCD_libdispatch_Ref)
 
+[Ray Wenderlich GCD Tutorial] (http://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
+
+## Using the framework
+
+### Using Cocoapods
 If you are using cocoapods then add the following line to your pod file:
 
 ```
 pod 'iDsipatch'
 ```
+
+### Adding to a workspace
+
+1. Download and place the code into workspace directory 
+2. Click file -> "Add files to <Workspace_name>"
+3. Navigate to iDispatch directory into your workspace directory
+4. Click on iDispatch.xcodeproj
+
+The project is now part of your workspace. You will have to add its reference to your main project in target section.
+
+### Adding to a project
+
+1. Copy the iDispatch/iDispatch source folder into your project
 
 Alternatively you could include project iDispatch/iDispatch.xcodeproj into you workspace or copy files of directory iDispatch/iDispatch/ into your project.
 
@@ -152,8 +169,10 @@ group.waitForSeconds(10)
 
 //To wait indefinitly for all the blocks to finish.
 group.waitForever()
+//Control will reach here only after all the blocks are finished.
 
-
-
-
+//Alternatively give a block that will be executed when all the blocks are finished.
+group.notify {
+    //Executes when all the blocks are finished.
+}
 ```
