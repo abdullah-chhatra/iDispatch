@@ -38,6 +38,13 @@ queue.dispatchSync {
 queue.dispatchAfterSeconds(3) {
     println("This will be executed after 3 seconds")
 }
+
+//Suspend queue
+queue.suspend()
+
+//Resume queue
+queue.resume()
+
 ```
 
 ## Concurrent Queues
@@ -115,3 +122,38 @@ queue.mapAsync(messages, block: { (message) -> String in
         }
 ```
 You many have different type of mapping array and mapped array, here it both are kept String for the sake of simplicity.
+
+## Dispatch Groups
+
+From Apple documentation of GCD for dispatch groups
+
+> Grouping blocks allows for aggregate synchronization. Your application can submit multiple blocks and track when they all complete, even though they might run on different queues. This behavior can be helpful when progress can’t be made until all of the specified tasks are complete.
+
+You could use DispatchGroup class to access this feature of GCD. A DispatchGroup could be created with or without binding to any perticular queue. If it is bound to a perticular queue all submitted task/blocks will be executed on that queue.
+
+```
+let queue1 = ConcurrentQueue(label: "MyConcurrentQueue")
+let queue2 = ConcurrentQueue(label: "OtherConcurrentQueue")
+
+let group = DispatchGroup(queue: queue1)
+
+//Eexecute block on the queue that was passed to initializer. 
+group.dispatchAync {
+    //Some work to do here
+}
+
+//Execute block on different queue.
+group.dispatchAsyncOnQueue(queue2) {
+    //Some more work to do on different queue
+}
+
+//To wait for specified seconds for all the blocks to finish.
+group.waitForSeconds(10)
+
+//To wait indefinitly for all the blocks to finish.
+group.waitForever()
+
+
+
+
+```
