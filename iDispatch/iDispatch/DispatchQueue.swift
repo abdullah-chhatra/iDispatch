@@ -11,7 +11,7 @@ import Foundation
 /**
     Base class for dispatch queues that provides basic operations to execute blocks.
     This class must be treated as abstract class and should not be instantiated directly.
-**/
+*/
 public class DispatchQueue {
     
     public let label: String
