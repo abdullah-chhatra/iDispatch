@@ -16,7 +16,8 @@ public typealias apply_block_t = (Int) -> Void
 */
 public class ConcurrentQueue : DispatchQueue {
   
-
+    /**:name: Initialization */
+    
     /**
         Designated initializer to create a new concurrent queue.
     
@@ -38,6 +39,7 @@ public class ConcurrentQueue : DispatchQueue {
         super.init(queue: queue)
     }
     
+    /**:name: Barriers */
     
     /**
         Dispatches a barrier block asynchronously on this queue. This method will return immediately.
@@ -58,6 +60,8 @@ public class ConcurrentQueue : DispatchQueue {
         dispatch_barrier_sync(queue, block)
     }
     
+    
+    /**:name: Iterations */
     
     /**
         Executes the block on this queue for number of iterations passed to it. The block may execute for
@@ -109,6 +113,8 @@ public class ConcurrentQueue : DispatchQueue {
             group.notify(completionBlock)
         }
     }
+    
+    /**:name: Map operations */
     
     /**
         Executes the mapping block concurrently for each element in array. This method will wait for all
