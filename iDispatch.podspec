@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "iDispatch"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Easy to use wrapper over GCD."
   s.description      = "Easy to use object oriented wrapper over GCD with added functionalities"
   s.homepage         = "https://github.com/abdullah-chhatra/iDispatch.git"
