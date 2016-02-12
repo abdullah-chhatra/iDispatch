@@ -12,7 +12,7 @@ As this is a wrapper over GCD all the GCD concepts and limitations apply to the 
 
 ## Using the framework
 
-### Using Cocoapods
+### Using CocoaPods
 If you are using cocoapods then add the following line to your pod file:
 
 ```
